@@ -3,17 +3,20 @@
 0. Pascal's Triangle
 
 Returns:
-    list: A list of lists of integers representing Pascal's triangle of n.
+    list: A list of lists of integers
+    representing Pascal's triangle of n.
 """
 
 def pascal_triangle(n):
     """Generate Pascal's Triangle up to the nth row.
 
     Args:
-        n (int): Number of rows of Pascal's Triangle to generate.
+        n (int): Number of rows of
+        Pascal's Triangle to generate.
 
     Returns:
-        list: A list of lists of integers representing Pascal's triangle of n.
+        list: A list of lists of integers
+        representing Pascal's triangle of n.
     """
     triangle = []
     if n > 0:
