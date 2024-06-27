@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-A list of lists of integers
-representing Pascal's triangle of n.
+0. Pascal's Triangle
 """
 
+
 def pascal_triangle(n):
-    """
-    Generate Pascal's Triangle up to the nth row.
+    """Create a function def pascal_triangle(n): that returns a list of lists
+    of integers representing the Pascal’s triangle of n
     """
     triangle = []
     if n > 0:
