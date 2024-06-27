@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-0. Pascal's Triangle
+A list of lists of integers
+representing Pascal's triangle of n.
 """
 
 
