@@ -1,34 +1,34 @@
 #!/usr/bin/python3
 
-""" Lockboxes """
+""" Check if all lockboxes can be unlocked """
 
 
 def canUnlockAll(boxes):
     """
-    - boxes is a list of lists
-    - A key with the same number as a box opens that box
-    - You can assume all keys will be positive integers
-    - The first box boxes[0] is unlocked
-    - Return True if all boxes can be opened, else return False
+    - Determines if all the boxes can be opened.
+    - boxes: a list of lists where each
+    - sublist contains keys to other boxes.
+    - True if all boxes can be opened, else False.
     """
-    canUnlockAll = False
-    keys = {0: True}
-    n_boxes = len(boxes)
+
+    can_Unlock_All = False
+    keys_get = {0: True}
+    get_len_box = len(boxes)
     while(True):
 
-        n_keys = len(keys)
+        key_len = len(keys_get)
 
-        for i in range(len(boxes)):
-            if boxes[i] and keys.get(i, False):
-                for j in boxes[i]:
-                    if j < n_boxes:
-                        keys[j] = True
-                    boxes[i] = None
+        for x in range(len(boxes)):
+            if boxes[x] and keys_get.get(x, False):
+                for y in boxes[x]:
+                    if y < get_len_box:
+                        keys_get[y] = True
+                    boxes[x] = None
 
-        if not(len(keys) > n_keys):
+        if not(len(keys_get) > key_len):
             break
 
-    if n_keys == len(boxes):
-        canUnlockAll = True
+    if key_len == len(boxes):
+        can_Unlock_All = True
 
-    return canUnlockAll
+    return can_Unlock_All
