@@ -5,24 +5,24 @@
 def primeFactorization(x):
     """function takes an integer x and returns
     a list of its prime factors."""
-    div = 2
-    array = list()
-    while (div <= x):
-        if x % div == 0:
-            array.append(div)
-            x /= div
+    ispri = 2
+    array_list = list()
+    while (ispri <= x):
+        if x % ispri == 0:
+            array_list.append(ispri)
+            x /= ispri
         else:
-            div += 1
+            ispri += 1
 
-    return array
+    return array_list
 
 
 def minOperations(n):
     """If n is less than or equal to 1, it's impossible
     to achieve it with the given operations"""
-    min = 0
-    factors = [x for x in primeFactorization(n)]
-    occurences = {item: factors.count(item) for item in factors}
-    for k, v in occurences.items():
-        min += k * v
-    return min
+    min_val = 0
+    fac_val = [x for x in primeFactorization(n)]
+    con = {item: fac_val.count(item) for item in fac_val}
+    for a, b in con.items():
+        min_val += a * b
+    return min_val
