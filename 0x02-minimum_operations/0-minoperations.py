@@ -3,7 +3,8 @@
 
 
 def primeFactorization(x):
-    """Returns prime factorization elements of x"""
+    """function takes an integer x and returns
+    a list of its prime factors."""
     div = 2
     array = list()
     while (div <= x):
@@ -17,8 +18,8 @@ def primeFactorization(x):
 
 
 def minOperations(n):
-    """Calculates the fewest number of operations needed
-        to result in exactly n H characters in the file"""
+    """If n is less than or equal to 1, it's impossible
+    to achieve it with the given operations"""
     min = 0
     factors = [x for x in primeFactorization(n)]
     occurences = {item: factors.count(item) for item in factors}
