@@ -106,7 +106,7 @@ KeyboardInterrupt
 alexa@ubuntu:~/0x03-log_parsing$ 
 ```
 
-#Author
+# Author
 - Basliel tegegn
    - [GitHub](https://github.com/basgotech)
    - [Linkedin](https://www.linkedin.com/in/baslieltegegn)
