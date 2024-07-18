@@ -1,39 +1,39 @@
 #!/usr/bin/python3
 """
-Log parsing
+ script that reads stdin line by line and computes metrics:
 """
 
 import sys
 
 if __name__ == '__main__':
 
-    filesize, count = 0, 0
-    codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
-    stats = {k: 0 for k in codes}
+    total_file_size, line_count = 0, 0
+    status_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
+    status_stats = {code: 0 for code in status_codes}
 
-    def print_stats(stats: dict, file_size: int) -> None:
-        print("File size: {:d}".format(filesize))
-        for k, v in sorted(stats.items()):
-            if v:
-                print("{}: {}".format(k, v))
+    def display_stats(statistics: dict, total_size: int) -> None:
+        print("File size: {:d}".format(total_size))
+        for code, count in sorted(statistics.items()):
+            if count:
+                print("{}: {}".format(code, count))
 
     try:
-        for line in sys.stdin:
-            count += 1
-            data = line.split()
+        for input_line in sys.stdin:
+            line_count += 1
+            data_elements = input_line.split()
             try:
-                status_code = data[-2]
-                if status_code in stats:
-                    stats[status_code] += 1
+                status_code = data_elements[-2]
+                if status_code in status_stats:
+                    status_stats[status_code] += 1
             except BaseException:
                 pass
             try:
-                filesize += int(data[-1])
+                total_file_size += int(data_elements[-1])
             except BaseException:
                 pass
-            if count % 10 == 0:
-                print_stats(stats, filesize)
-        print_stats(stats, filesize)
+            if line_count % 10 == 0:
+                display_stats(status_stats, total_file_size)
+        display_stats(status_stats, total_file_size)
     except KeyboardInterrupt:
-        print_stats(stats, filesize)
+        display_stats(status_stats, total_file_size)
         raise
