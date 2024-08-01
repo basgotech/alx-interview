@@ -58,7 +58,7 @@ if len(sys.argv) != 2:
 B = sys.argv[1]
 
 try:
-    B = int(N)
+    B = int(B)
 except ValueError:
     print("N must be a number")
     sys.exit(1)
@@ -67,7 +67,7 @@ if B < 4:
     print("N must be at least 4")
     sys.exit(1)
 
-queen = NQueen(N)
+queen = NQueen(B)
 res_grap = queen.nQueen(1)
 
 for a in res_grap:
