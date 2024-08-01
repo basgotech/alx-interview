@@ -1,28 +1,29 @@
 #!/usr/bin/python3
-
+"""  N QUEENS ALGORITHM """
 import sys
 
 
 class NQueen:
-    """ Constructor to initialize the board size and other variables """
+    """ Constructor to initialize the board size and
+    other variables
+    """
     
     def __init__(self, n):
-        
+        """ initilize """
         self.n = n
         self.x = [0 for i in range(n + 1)]
         self.res = []
 
-    """Function to check if a queen can be placed at position (k, i)"""
     def place(self, k, i):
+        """Function to check if a queen can be placed at position (k, i)"""
         for j in range(1, k):
             if self.x[j] == i or \
                abs(self.x[j] - i) == abs(j - k):
                 return 0
         return 1
     
-    """Recursive function to solve the N Queens problem"""
     def nQueen(self, k):
-        
+        """Recursive function to solve the N Queens problem"""
         for i in range(1, self.n + 1):
             if self.place(k, i):
                 
