@@ -10,7 +10,7 @@ def is_valid(board, row, col):
             return False
     return True
 
-def solve_nqueens(N):
+def NQueen(N):
     def backtrack(row=0):
         if row == N:
             solutions.append(board[:])
@@ -45,7 +45,7 @@ def main():
         print("N must be at least 4")
         sys.exit(1)
     
-    solutions = solve_nqueens(N)
+    solutions = NQueen(N)
     print_solutions(solutions)
 
 if __name__ == "__main__":
