@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" N QUEENS ALGORITHM WITH BACKTRACKING (RECURSION INSIDE LOOP) """
+""" N QUEENS ALGORITHM"""
 import sys
 
 
 class NQueen:
-    """ Class for solving N Queen Problem """
+    """ Constructor to initialize the board size
+    and other variables """
 
     def __init__(self, n):
         """ Global Variables """
@@ -13,8 +14,8 @@ class NQueen:
         self.res = []
 
     def place(self, k, i):
-        """ Checks if k Queen can be placed in i column (True)
-        or if the are attacking queens in row or diagonal (False)
+        """ Function to check if a queen can be placed
+        at position (k, i)
         """
 
         # j checks from 1 to k - 1 (Up to previous queen)
@@ -27,9 +28,8 @@ class NQueen:
         return 1
 
     def nQueen(self, k):
-        """ Tries to place every queen in the board
-        Args:
-        k: starting queen from which to evaluate (should be 1)
+        """ Recursive function to solve the
+        N Queens problem
         """
         # i goes from column 1 to column n (1st column is 1st index)
         for i in range(1, self.n + 1):
@@ -37,7 +37,8 @@ class NQueen:
                 # Queen can be placed in i column
                 self.x[k] = i
                 if k == self.n:
-                    # Placed all 4 Queens (A solution was found)
+                    # If all queens are placed, add the
+                    # solution to the result list
                     solution = []
                     for i in range(1, self.n + 1):
                         solution.append([i - 1, self.x[i] - 1])
