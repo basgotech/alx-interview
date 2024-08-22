@@ -3,41 +3,40 @@
 Making Change
 """
 
-
-def makeChange(coins, total):
+def minimumCoins(coin_values, target_amount):
     """
-    Return the minimum number of coins needed to meet a given total
+    Return the minimum number of coins needed to meet a given total.
     Args:
-        coins (list of ints): a list of coins of different values
-        total (int): total value to be met
+        coin_values (list of ints): a list of coins of different values
+        target_amount (int): total value to be met
     Return:
         Number of coins or -1 if meeting the total is not possible
     """
-    if total <= 0:
+    if target_amount <= 0:
         return 0
-    if coins == [] or coins is None:
+    if coin_values == [] or coin_values is None:
         return -1
     try:
-        n = coins.index(total)
+        coin_index = coin_values.index(target_amount)
         return 1
     except ValueError:
         pass
 
-    coins.sort(reverse=True)
-    coin_count = 0
-    for i in coins:
-        if total % i == 0:
-            coin_count += int(total / i)
-            return coin_count
-        if total - i >= 0:
-            if int(total / i) > 1:
-                coin_count += int(total / i)
-                total = total % i
+    coin_values.sort(reverse=True)
+    total_coins = 0
+    for coin in coin_values:
+        if target_amount % coin == 0:
+            total_coins += int(target_amount / coin)
+            return total_coins
+        if target_amount - coin >= 0:
+            if int(target_amount / coin) > 1:
+                total_coins += int(target_amount / coin)
+                target_amount = target_amount % coin
             else:
-                coin_count += 1
-                total -= i
-                if total == 0:
+                total_coins += 1
+                target_amount -= coin
+                if target_amount == 0:
                     break
-    if total > 0:
+    if target_amount > 0:
         return -1
-    return coin_count
+    return total_coins
