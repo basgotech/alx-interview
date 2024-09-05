@@ -4,14 +4,8 @@
 
 
 def isWinner(rounds, nums):
-    """Determines the winner of a prime game session with `rounds` rounds.
-    
-    Args:
-        rounds (int): The number of rounds.
-        nums (list): List of integers representing the upper limit for each round.
-    
-    Returns:
-        str: The winner ('Maria' or 'Ben') or None if there is no winner.
+    """Determines the winner of a prime game
+    session with `rounds` rounds.
     """
     if rounds < 1 or not nums:
         return None
@@ -29,7 +23,7 @@ def isWinner(rounds, nums):
             for multiple in range(num * num, max_num + 1, num):
                 is_prime[multiple] = False
 
-    # Determine the number of primes up to each number in nums for each round.
+    # Determine the number of primes  nums for each round.
     for upper_limit in nums:
         prime_count = sum(is_prime[2:upper_limit + 1])
         if prime_count % 2 == 0:
